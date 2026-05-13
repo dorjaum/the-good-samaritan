@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(docker --version)",
+      "Bash(systemctl status *)",
+      "Bash(docker run *)"
+    ]
+  }
+}
