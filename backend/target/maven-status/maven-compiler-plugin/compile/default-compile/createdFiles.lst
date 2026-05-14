@@ -1,0 +1,7 @@
+com\thegoodsamaritan\health\HealthController.class
+com\thegoodsamaritan\person\PersonController.class
+com\thegoodsamaritan\person\PersonStore.class
+com\thegoodsamaritan\TheGoodSamaritanApplication.class
+com\thegoodsamaritan\person\Person.class
+com\thegoodsamaritan\person\CreatePersonRequest.class
+com\thegoodsamaritan\web\ApiExceptionHandler.class

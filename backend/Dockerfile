@@ -1,17 +1,17 @@
 # syntax=docker/dockerfile:1
 
-FROM golang:1.22-alpine AS build
+FROM eclipse-temurin:17-jdk-alpine AS build
 WORKDIR /src
-RUN apk add --no-cache ca-certificates
-COPY go.mod ./
-RUN go mod download
-COPY . .
-RUN CGO_ENABLED=0 GOOS=linux go build -trimpath -ldflags="-s -w" -o /out/server .
+RUN apk add --no-cache maven
+COPY pom.xml .
+RUN mvn -q -B dependency:go-offline
+COPY src ./src
+RUN mvn -q -B package -DskipTests
 
-FROM alpine:3.20
+FROM eclipse-temurin:17-jre-alpine
 RUN apk add --no-cache ca-certificates
 WORKDIR /app
-COPY --from=build /out/server .
+COPY --from=build /src/target/backend-*.jar /app/app.jar
 EXPOSE 8080
 USER nobody
-ENTRYPOINT ["/app/server"]
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
