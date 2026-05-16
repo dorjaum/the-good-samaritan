@@ -3,7 +3,9 @@
     "allow": [
       "Bash(docker --version)",
       "Bash(systemctl status *)",
-      "Bash(docker run *)"
+      "Bash(docker run *)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:codeload.github.com)"
     ]
   }
 }

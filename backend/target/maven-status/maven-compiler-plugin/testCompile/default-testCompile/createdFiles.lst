@@ -1,0 +1,4 @@
+com\thegoodsamaritan\person\controller\PersonControllerTest.class
+com\thegoodsamaritan\person\mapper\PersonMapperTest.class
+com\thegoodsamaritan\person\service\PersonServiceTest.class
+com\thegoodsamaritan\person\repository\PersonRepositoryTest.class
